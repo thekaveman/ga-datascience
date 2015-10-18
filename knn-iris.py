@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.cross_validation import train_test_split
 
 # import the iris dataset into a DataFrame
 iris = pd.read_csv("./data/iris.csv")
@@ -15,3 +16,6 @@ iris_features = iris[["sepal_length",
                       "petal_width"]].values
 
 iris_target = iris.species.values
+
+features_train, features_test, target_train, target_test = \
+    train_test_split(iris_features, iris_target, test_size=0.20, random_state=0)
