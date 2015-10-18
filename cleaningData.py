@@ -19,3 +19,6 @@ data.Sex = data.Sex.replace(["male", "female"],
 
 # ensure the replacement worked
 data.head(20)
+
+# save into a new file
+data.to_csv("./data/clean_data.csv", header = True, index = False)
