@@ -26,4 +26,11 @@ features_train, features_test, target_train, target_test = \
 model = KNeighborsClassifier(3).fit(features_train, target_train)
 
 # now make predictions on probabilities
-model.predict_proba(features_test)
+print model.predict_proba(features_test)
+
+# compare predictions with the truth data
+print model.predict(features_test)
+print target_test
+
+# get an accuracy score of the model
+print model.score(features_test, target_test)
