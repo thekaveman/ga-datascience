@@ -15,8 +15,8 @@ surivalRateChildrenSeniors = \
 print surivalRateChildrenSeniors
 
 # group by Pclass and investigate average survival rate, age and fare
-groupedByPclass = data.groupby("Pclass")
-print groupedByPclass.describe().T
+groupedByPclass = data.groupby("Pclass")["Age", "Survived", "Fare"].mean()
+print groupedByPclass
 
 # create an Excel file with the names and ages of the survivors on one tab...
 # ...and the names and ages of the deceased on another tab
