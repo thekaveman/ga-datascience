@@ -43,3 +43,12 @@ print adultMenSurvivalRate
 womenChildrenSurvivalRate = \
     data.Survived[(data.Sex == "female") | (data.Age < 18)].mean()
 print womenChildrenSurvivalRate
+
+# compare the survival rates by Sex
+data.groupby("Sex")["Survived"].mean()
+
+# new DataFrame grouped by Sex, with mean Surivival rate and Age
+groupedData = data.groupby("Sex")["Survived", "Age"].mean()
+
+# reset the index (converts existing index 'Sex' to column of data)
+groupedData.reset_index(inplace = True)
