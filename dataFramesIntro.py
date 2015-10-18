@@ -11,3 +11,8 @@ df = pd.DataFrame({
     "customer_account": customer_account,
     "city": city
 })
+
+# sort the DataFrame on the 'sales' column in descending order
+# overwrite the existing DataFrame with a new sorted DataFrame
+
+df = df.sort("sales", ascending=False)
