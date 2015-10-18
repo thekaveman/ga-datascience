@@ -17,3 +17,15 @@ print surivalRateChildrenSeniors
 # group by Pclass and investigate average survival rate, age and fare
 groupedByPclass = data.groupby("Pclass")
 print groupedByPclass.describe().T
+
+# create an Excel file with the names and ages of the survivors on one tab...
+# ...and the names and ages of the deceased on another tab
+writer = pd.ExcelWriter("./data/titanic.xlsx")
+
+survivors = data[["Name", "Age"]][data.Survived == 1]
+deceased = data[["Name", "Age"]][data.Survived == 0]
+
+survivors.to_excel(writer, "Survivors")
+deceased.to_excel(writer, "Deceased")
+
+writer.save()
