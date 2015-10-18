@@ -22,15 +22,10 @@ iris_target = iris.species.values
 features_train, features_test, target_train, target_test = \
     train_test_split(iris_features, iris_target, test_size=0.20, random_state=0)
 
-# training a KNN classifier
-model = KNeighborsClassifier(3).fit(features_train, target_train)
-
-# now make predictions on probabilities
-print model.predict_proba(features_test)
-
-# compare predictions with the truth data
-print model.predict(features_test)
-print target_test
-
-# get an accuracy score of the model
-print model.score(features_test, target_test)
+# trying different values of K
+for k in range(2,8):
+    # training a KNN classifier
+    model = KNeighborsClassifier(k).fit(features_train, target_train)
+    # get an accuracy score of the model with this value of k
+    accuracy = model.score(features_test, target_test)
+    print "k = {}, accuracy = {}".format(k, accuracy)
