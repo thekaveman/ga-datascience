@@ -16,3 +16,7 @@ df = pd.DataFrame({
 # overwrite the existing DataFrame with a new sorted DataFrame
 
 df = df.sort("sales", ascending=False)
+
+# find the customer in the last row in the DataFrame
+
+lastCustomer = df.iloc[len(df.index) - 1]
