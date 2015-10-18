@@ -5,7 +5,7 @@ data = pd.read_csv("./data/train.csv")
 
 # what was the average age of the survivors?
 
-avgSurvivalAge = data["Age"].mean()
+avgSurvivalAge = data.Age[data.Survived == 1].mean()
 print avgSurvivalAge
 
 # what was the survival rate of the children and seniors?
