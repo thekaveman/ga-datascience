@@ -33,3 +33,13 @@ print onlyMenAgesNames
 # count the men and women
 print data.Sex[data.Sex == "male"].count()
 print data.Sex[data.Sex == "female"].count()
+
+# calc the survival rate for adult men (age >= 18)
+adultMenSurvivalRate = \
+    data.Survived[(data.Sex == "male") & (data.Age >= 18)].mean()
+print adultMenSurvivalRate
+
+# calc the survival rate for women and children
+womenChildrenSurvivalRate = \
+    data.Survived[(data.Sex == "female") | (data.Age < 18)].mean()
+print womenChildrenSurvivalRate
