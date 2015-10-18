@@ -25,7 +25,7 @@ writer = pd.ExcelWriter("./data/titanic.xlsx")
 survivors = data[["Name", "Age"]][data.Survived == 1]
 deceased = data[["Name", "Age"]][data.Survived == 0]
 
-survivors.to_excel(writer, "Survivors")
-deceased.to_excel(writer, "Deceased")
+survivors.to_excel(writer, "Survivors", index = False)
+deceased.to_excel(writer, "Deceased", index = False)
 
 writer.save()
