@@ -12,3 +12,10 @@ data.Age = data.Age.fillna(avg_age)
 
 # look at the data again after filling to ensure it didn't significant alter
 print data.info()
+
+# replace text with boolean in Sex column
+data.Sex = data.Sex.replace(["male", "female"],
+                            [True, False])
+
+# ensure the replacement worked
+data.head(20)
