@@ -1,5 +1,6 @@
 import pandas as pd
 from sklearn.cross_validation import train_test_split
+from sklearn.neighbors import KNeighborsClassifier
 
 # import the iris dataset into a DataFrame
 iris = pd.read_csv("./data/iris.csv")
@@ -17,5 +18,11 @@ iris_features = iris[["sepal_length",
 
 iris_target = iris.species.values
 
+# splitting the iris features and target into train and test sets
+
 features_train, features_test, target_train, target_test = \
     train_test_split(iris_features, iris_target, test_size=0.20, random_state=0)
+
+# training a KNN classifier
+
+model = KNeighborsClassifier(3).fit(features_train, target_train)
