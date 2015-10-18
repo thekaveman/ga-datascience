@@ -7,3 +7,13 @@ data = pd.read_csv("./data/train.csv")
 
 avgSurvivalAge = data["Age"].mean()
 print avgSurvivalAge
+
+# what was the survival rate of the children and seniors?
+
+surivalRateChildrenSeniors = \
+    data.Survived[(data.Age < 18) | (data.Age > 60)].mean()
+print surivalRateChildrenSeniors
+
+# group by Pclass and investigate average survival rate, age and fare
+groupedByPclass = data.groupby("Pclass")
+print groupedByPclass.describe().T
