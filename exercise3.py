@@ -11,7 +11,7 @@ model = RandomForestClassifier().fit(passenger_features, passenger_target)
 
 # reading and preparing test data
 testData = pd.read_csv("./data/test.csv")
-testData.Age = data.Age.fillna(testData.Age.mean())
+testData.Age = testData.Age.fillna(testData.Age.mean())
 testData.Sex = testData.Sex.replace(["male", "female"], [True, False])
 
 # predicting outcomes using test data
